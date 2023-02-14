@@ -4,8 +4,6 @@ A simple CRUD application with Django using Class-Based Views (CBV). It consists
 
 ## 🚀 Getting Started
 
----
-
 Follow the steps to install the project on your local machine.
 
 ### 📋 Prerequisites
@@ -42,8 +40,6 @@ docker-compose run web python manage.py migrate
 ```
 
 ## 🛠️ Built with
-
----
 
 * [Django](https://www.djangoproject.com/)
 * [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) 

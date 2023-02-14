@@ -24,7 +24,7 @@ docker-compose
 Clone this repo or download to your local machine:
 
 ```sh
-git clone https://github.com/ianasampaio/student-enrollment-.git
+https://github.com/ianasampaio/student-enrollment.git
 ```
 
 ### 📌 Usage

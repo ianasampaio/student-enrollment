@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load django_bootstrap5 %} {% block content %}
+
+<div class="container table mt-5">
+    <table class="table text-capitalize mb-5">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Register</th>
+          <th scope="col">Student</th>
+          <th scope="col">Major</th>
+          <th scope="col">Situation</th>
+          <th scope="col">Admission semester</th>
+          <th scope="col">Final semester</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row">{{ student.id }}</th>
+          <td>{{ student.name }}</td>
+          <td scope="row">{{ student.subject }}</td>
+          <td scope="row">{{ student.status }}</td>
+          <td scope="row">{{ student.beginSemester }}</td>
+          <td scope="row">{{ student.endSemester }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-primary me-3" href="{% url 'list_students' %}" role="button">Return</a>
+    </div>
+
+</div>
+
+
+{% endblock content %}

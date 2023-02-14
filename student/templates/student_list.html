@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% load django_bootstrap5 %} {% block content %}
+
+<div class="container toggle d-flex flex-row-reverse">
+  <a href="{% url 'create_students' %}" class="btn btn-outline-primary btn-sm fw-bold">Add new register +</a>
+</div>
+
+<form method="GET" class="mx-auto mt-5 d-flex flex-row mb-3" style="width: 700px">
+  <div class="input-group me-2">
+    <input type="text" class="form-control search-bar " placeholder="Name" aria-label="Name" name="name"
+      aria-describedby="basic-addon1" value="{{ request.GET.nome }}" autocomplete="off" />
+    <button type="submit" class="btn btn-outline-secondary">
+      <i class="fas fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <a href="{% url "list_students" %}" class="btn btn-outline-secondary" id="basic-addon1">
+    <i class="fa-solid fa-rotate"></i>
+  </a>
+</form>
+
+<!-- <div class="container toggle d-flex flex-row-reverse">
+  <div class="dropdown">
+    <button
+      class="btn btn-outline-secondary btn-sm dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Situation
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">All situations</a></li>
+      <li><a class="dropdown-item" href="#">Undegraduate</a></li>
+      <li><a class="dropdown-item" href="#">Leave of absence</a></li>
+      <li><a class="dropdown-item" href="#">Graduate</a></li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="container table pt-5">
+  <table class="table text-capitalize">
+    <thead>
+      <tr>
+        <th class="fw-bold" scope="col">Register</th>
+        <th class="fw-bold" scope="col">Student</th>
+        <th class="fw-bold" scope="col">Major</th>
+        <th class="fw-bold" scope="col">Admission semester</th>
+        <th class="fw-bold" scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for student in object_list %}
+      <tr>
+        <th scope="row">{{ student.id }}</th>
+        <td>{{ student.name }}</td>
+        <td scope="row">{{ student.subject }}</td>
+        <td scope="row">{{ student.beginSemester }}</td>
+
+        <td>
+          <a href="{% url 'detail_students' student.id %}" class="btn btn-outline-info btn-sm">View</a>
+          <a href="{% url 'update_students' student.id %}" class="btn btn-outline-primary btn-sm">Update</a>
+          <a href="{% url 'delete_students' student.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+
+      {% empty %}
+      <tr>
+        <td colspan="3">No records found.</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- Pagination -->
+<div class="pagination justify-content-center">
+  {% if page_obj.has_previous %}
+    {% if request.GET.name %}
+    <a class="link-primary text-decoration-none"
+      href='{% url "list_students" %}?page={{ page_obj.previous_page_number }}&name={{request.GET.name}}'>Previous
+    </a>
+    {% else %}
+    <a class="link-primary text-decoration-none"
+      href='{% url "list_students" %}?page={{ page_obj.previous_page_number }}'>Previous
+    </a>
+    {% endif %}
+  {% endif %}
+
+  <span class="mx-4">
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+  </span>
+
+  {% if page_obj.has_next %}
+    {% if request.GET.name %}
+    <a class="link-primary text-decoration-none" href='{% url "list_students" %}?page={{ page_obj.next_page_number }}&name={{request.GET.name}}'>
+      Next</a>
+    {% else %}
+    <a class="link-primary text-decoration-none" href='{% url "list_students" %}?page={{ page_obj.next_page_number }}'>
+      Next</a>
+    {% endif %}
+  {% endif %}
+</div>
+<!-- END Pagination -->
+
+{% endblock content %}

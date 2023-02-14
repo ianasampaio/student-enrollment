@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load django_bootstrap5 %} {% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container table">
+  <div class="container d-flex justify-content-center row g-1">
+    <div class=" d-flex justify-content-center ">
+      <p class="fw-bold">Update the data in record {{student.id}} :</p>
+    </div>
+    <form method="post" class="col-6">
+      {% csrf_token %} 
+      
+      {{ form|crispy }}
+ 
+
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-danger me-3" href="{% url 'list_students' %}" role="button">Cancel</a>
+        <button class="btn btn-outline-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

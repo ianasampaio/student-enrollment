@@ -1,0 +1,87 @@
+/* general */
+* {
+  margin: 0;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Haas Grot Text R Web", Helvetica, Arial, sans-serif;
+  font-weight: 400;                                                
+}
+html{
+  height: 100%;
+}
+
+body{
+  background-color: #fff;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding-bottom: 200px;
+}
+
+p{
+  font-size: 18px;
+}
+
+.row {
+  margin: 0;
+}
+
+.container {
+  padding: 30px 0px;
+}
+
+.toggle {
+  padding: 40px 0 0 0;
+}
+
+.table { 
+  padding-top: 0px;
+}
+/* navbar */
+header, footer, 
+.navbar {
+  background-color: #011425;
+}
+
+.navbar-brand {
+  padding: 0;
+  color: #fff;
+}
+#nav-container{
+  padding: 20px 0;
+}
+
+.font-header {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.navbar-brand:hover {
+  color: #fff;
+}
+
+#navbar-links a {
+  color: #fff;
+  font-size: 18px;
+}
+
+.navbar-expand-lg .navbar-nav .navbar-link {
+  padding: 1rem 0.8rem;
+}
+/* footer */
+
+footer{
+  position: absolute;
+  margin-top: 70px; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.name-footer{
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.search-bar{
+  background-color: #f3f3f4;
+  font-size: 15px;
+}

@@ -1,4 +1,4 @@
- # Studente enrollment system
+ # Student enrollment system
 
 A simple CRUD application with Django using Class-Based Views (CBV). It consists of a student registration system to create, update, remove, search and list students.
 

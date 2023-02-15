@@ -39,31 +39,3 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
-
-    # def getSubject(self):
-
-    #     subject = self.student_set.values('subject__name','status__status').all()
-    #     # return subject
-    #     situationSubject = [value['subject__name'] for value in subject if value['status__status'] == 'Undegraduate' or value['status__status'] == 'Leave of absence']
-
-    #     txtSubjects = [value for value in situationSubject] 
-    #     return txtSubjects
-        
-    # getSubject.short_description = 'subjects'    
-
-
-
-# class student(models.Model):
-#     subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
-#     student = models.ForeignKey(Student,on_delete=models.CASCADE)
-#     status = models.ForeignKey(Situation,verbose_name='Situation',on_delete=models.CASCADE)
-#     beginSemester =  models.PositiveIntegerField('Admission semester',blank=False, null=False)
-#     endSemester =  models.PositiveIntegerField('Final semester',blank=True, null=True)
-
-#     class Meta:
-#         verbose_name = "student"
-#         verbose_name_plural = "students"
-#         ordering = ["-endSemester"]
-    
-#     def __str__(self):
-#         return str(self.student) + ' , ' + str(self.subject)
